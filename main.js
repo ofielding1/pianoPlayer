@@ -14,16 +14,14 @@ function keyReturn() {
     event.target.style.backgroundColor = '';
 }
 
-const colorChanger = (note) => {
-    note.addEventListener('mousedown', keyPlay);
-    note.addEventListener('mouseup', keyReturn);
-}
-notes.forEach(note => colorChanger(note));
 // Write a named function with event handler properties
-
+const colorChanger = (note) => {
+  note.addEventListener('mousedown', keyPlay);
+  note.addEventListener('mouseup', keyReturn);
+}
 
 // Write a loop that runs the array elements through the function
-
+notes.forEach(note => colorChanger(note));
 
 // These variables store the buttons that progress the user through the lyrics
 let nextOne = document.getElementById('first-next-line');
@@ -40,10 +38,25 @@ nextThree.hidden = true;
 startOver.hidden= true;
 
 // Write anonymous event handler property and function for the first progress button
-
+nextOne.addEventListener('click', function(){
+  nextTwo.hidden = false;
+  nextOne.hidden = true;
+  document.getElementById('letter-note-five').innerHTML = 'D';
+  document.getElementById('letter-note-six').innerHTML = 'C';
+});
 
 // Write anonymous event handler property and function for the second progress button
-
+nextTwo.addEventListener('click', function(){
+  nextThree.hidden = false;
+  nextTwo.hidden = true;
+  document.getElementById('word-five').innerHTML = 'DEAR';
+  document.getElementById('word-six').innerHTML = 'FRI-';
+  document.getElementById('letter-note-three').innerHTML = 'G';
+  document.getElementById('letter-note-four').innerHTML = 'E';
+  document.getElementById('letter-note-five').innerHTML = 'C';
+  document.getElementById('letter-note-six').innerHTML = 'B';
+  lastLyric.style.display = 'inline-block';
+});
 
 // Write anonymous event handler property and function for the third progress button
 
